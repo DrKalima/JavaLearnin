@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Main {
+Integer amtDeposit = 0;
+Integer amtWithdraw = 0;
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        Account account = new Account();
+
+        System.out.println("Hi " + account.getName());
+        System.out.println("Your account# is: " + account.getAccNum());
+        System.out.println("Your current balance is: " + account.getAccBal());
+        System.out.println();
+        System.out.println("Would you like to A:Deposit or B:Withdrawal today?");
+        System.out.println("Please type in A for Deposit or B for Withdrawal");
+        String check = scanner.nextLine();
+        check = check.toLowerCase();
+
+        if (check.equals("a")){
+            System.out.println("How much do you want to deposit?");
+            int amtDeposit = Integer.parseInt(scanner.nextLine());
+            deposit(amtDeposit);
+        }
+        else if(check.equals("b")){
+            System.out.println("How much do you want to Withdrawal?");
+            int amtWithdraw = Integer.parseInt(scanner.nextLine());
+            withdraw(amtWithdraw);
+        }
+        else
+        {
+            System.out.println("Not an valid input...");
+        }
+
+    }
+
+    public static void withdraw(int amtWithdraw){
+
+        Account account = new Account();
+        Integer accBal = account.getAccBal();
+
+        if(amtWithdraw > accBal){
+            System.out.println("Not enough money...Buddy!");
+        }
+        else{
+            accBal -= amtWithdraw;
+            System.out.println("You withdrew: " + "$" + amtWithdraw);
+            System.out.println("Your remaining balance is: " + "$" + accBal);
+        }
+
+    }
+
+    public static void deposit(int amtDeposit)
+    {
+        Account account = new Account();
+        Integer accBal = account.getAccBal();
+
+      if(amtDeposit > 0)
+      {
+            accBal += amtDeposit;
+            System.out.println("You deposited: " + "$" + amtDeposit);
+            System.out.println("Your remaining balance is: " + "$" + accBal);
+      }
+        else
+        {
+            System.out.println("You loser... You don't have the $$$$ to do that, try again...");
+        }
+
+    }
+}
