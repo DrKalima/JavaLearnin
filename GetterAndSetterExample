@@ -1,0 +1,30 @@
+public class Account {
+
+    private Integer accNum = 199100001;
+    private Integer accBal = 10000;
+    private String name = "Chase";
+    private String email = "jacegold@gmail.com";
+    private String phoneNum = "6623384480";
+
+    public Integer getAccNum(){
+        return accNum;
+    }
+    public Integer getAccBal(){
+        return accBal;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public String getPhoneNum(){
+        return phoneNum;
+    }
+
+
+
+
+
+
+}
